@@ -6,21 +6,22 @@ import Compass from "./accets/compass.png"
 import Rain from "./accets/rain.png"
 
 
+
+
 function App() {
   const [querry, setquerry] = useState("")
   const [apiresponse, getapiresponse] = useState([])
   const [forecast, getforecast] = useState([1, 2])
   const [show, setshow] = useState(false)
 
-
   const weatherdata = async (querry) => {
     const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=610933441a874e8887d222215210510&q=${querry}&days=6&aqi=yes&alerts=yes`)
     await getapiresponse(response.data)
     // await console.log(apiresponse.location.name);
     // await console.log(apiresponse.location.region);
-    // await console.log(apiresponse.current.temp_c);
+
     getforecast(response.data.forecast.forecastday.splice(1, 2));
-    console.log(forecast);
+    await console.log(forecast[0].day.maxwind_kph);
     await setshow(true);
   }
 
@@ -47,7 +48,7 @@ function App() {
             </div>
           </div>
           <div className="footer">
-            <div className="data"><img alt="wind" className="imageclass" src={Rain} /><span className="value">2</span></div>
+            <div className="data"><img alt="wind" className="imageclass" src={Rain} /><span className="value">{show ? apiresponse.current.precip_in : 12}</span></div>
             <div className="data"><img alt="wind" className="imageclass" src={Wind} /><span className="value">{show ? apiresponse.current.wind_kph : 10}<span className='units'>km/h</span></span></div>
             <div className="data ">
               <img style={{ width: '16px', height: '16px' }} alt="wind" className="imageclass" src={Compass} />
@@ -77,8 +78,8 @@ function App() {
                 </div>
               </div>
               <div style={{ gap: "1px" }} className="footer">
-                <div className="data"><img alt="wind" className="imageclass" src={Rain} /><span className="value">2</span></div>
-                <div className="data"><img alt="wind" className="imageclass" src={Wind} /><span className="value">{show ? apiresponse.current.wind_kph : 10}<span className='units'>km/h</span></span></div>
+                <div className="data"><img alt="wind" className="imageclass" src={Rain} /><span className="value">{show ? x.day.totalprecip_in : 12}</span></div>
+                <div className="data"><img alt="wind" className="imageclass" src={Wind} /><span className="value">{show ? x.day.maxwind_kph : 10}<span className='units'>km/h</span></span></div>
               </div>
             </div>
           </div>)
