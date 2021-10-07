@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300&family=Rubik:wght@300&display=swap");
+
+.weathercard {
+  width: 30%;
+  height: min-content;
+  margin: 0;
+  box-shadow: 0px 13px 11px -5px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  overflow: auto;
+  color: rgb(235, 231, 231);
+}
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style the top navigation bar */
+.topnav {
+  background-color: #29343a;
+  padding: 6px;
+  padding-left: 5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style the content */
+.content {
+  background-color: #37474f;
+  padding: 1px;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #37474f;
+  padding: 8px;
+  padding-left: 5%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 14px;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Alegreya Sans", sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 35px;
+}
+
+.place {
+  margin: 5px 0 0 5px;
+  padding: 0;
+  text-align: start;
+}
+.temp {
+  width: 50%;
+  align-self: center;
+  font-size: 50px;
+  width: fit-content;
+}
+
+.condtion {
+  font-size: 15px;
+}
+
+.location {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+}
+.region {
+  font-size: 9px;
+  padding-left: 10px;
+}
+.imageclass {
+  width: 18px;
+  height: 18px;
+}
+
+.data {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+
+.units {
+  font-size: 8px;
+  align-self: center;
+}
+.value {
+  padding-left: 4px;
+}
+
+.imageclass {
+  color: #fff;
+  opacity: 70%;
+}
+
+.cardcontainer {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 4px;
+  flex-direction: row;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* forecast.map((x,index)=>{return(        <div style={{ width: '14%' }} className="weathercard">
+<div class="topnav">
+  Thursday
+</div>
+<div style={{
+  height: "154.2px",
+  overflow: "hidden",
+  backgroundColor: '#37474f'
+}} className="box2">
+  <div class="content">
+    <div style={{ flexDirection: "column" }} className="container">
+      <div style={{ fontSize: '28px' }} className="temp">{show ? apiresponse.current.temp_c : 24}<sup>o</sup>C</div>
+      <div>
+        <img style={{ width: '64px', height: '64px', margin: '3px' }} alt='icons' src={show ? apiresponse.current.condition.icon : "//cdn.weatherapi.com/weather/64x64/day/116.png"} />
+      </div>
+    </div>
+  </div>
+  <div style={{ gap: "1px" }} className="footer">
+    <div className="data"><img alt="wind" class="imageclass" src={Rain} /><span className="value">2</span></div>
+    <div className="data"><img alt="wind" class="imageclass" src={Wind} /><span className="value">{show ? apiresponse.current.wind_kph : 10}<span className='units'>km/h</span></span></div>
+  </div>
+</div>
+</div>)}) */
